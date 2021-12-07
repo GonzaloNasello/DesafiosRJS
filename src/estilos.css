@@ -1,0 +1,33 @@
+header{
+    background-color: rgb(57, 68, 214);
+}
+
+.tituloPrincipal{
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    padding: 0px 10px;
+    background-color: royalblue;
+}
+
+.link{
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover {
+    color: silver;
+}
+
+#link--inicio{
+    margin-left: 20px;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 17px;
+}
