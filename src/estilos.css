@@ -31,3 +31,9 @@ header{
     background-color: white;
     font-size: 17px;
 }
+
+#icono{
+    display: flex;
+    align-items: center;
+    margin-left: 800px;
+}
