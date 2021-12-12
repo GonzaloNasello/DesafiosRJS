@@ -1,3 +1,5 @@
+import CarWidget from "./CarWidget";
+
 const NavBar = (props) => {
     return (
         <header>
@@ -8,7 +10,7 @@ const NavBar = (props) => {
                 return <a key={indice} href={secciones} className="link">{secciones}</a>
             }
             )}
-            <span class="material-icons" id="icono"> book </span>
+            <CarWidget/>
             </nav>
         </header>
     )
