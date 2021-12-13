@@ -37,3 +37,15 @@ header{
     align-items: center;
     margin-left: 800px;
 }
+
+.botonsumaresta{
+    width: 30px;
+    color: white;
+    background-color: blue;
+}
+
+.botonconfirmar{
+    width: 114px;
+    color: white;
+    background-color: blue
+}
