@@ -1,4 +1,4 @@
-import CarWidget from "./CarWidget";
+import CartWidget from "./CartWidget";
 
 const NavBar = ({secciones}) => {
     return (
@@ -10,7 +10,7 @@ const NavBar = ({secciones}) => {
                 return <a key={indice} href={secciones} className="link">{secciones}</a>
             }
             )}
-            <CarWidget/>
+            <CartWidget/>
             </nav>
         </header>
     )

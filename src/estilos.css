@@ -33,9 +33,7 @@ header{
 }
 
 #icono{
-    display: flex;
-    align-items: center;
-    margin-left: 800px;
+    margin: 10px 0px 0px 790px;
 }
 
 .botonsumaresta{
@@ -48,4 +46,17 @@ header{
     width: 114px;
     color: white;
     background-color: blue
+}
+
+.articulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    margin: 10px;
+    border: solid 1px black;
+    background-color: cornflowerblue;
+    color: white;
 }
