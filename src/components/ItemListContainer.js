@@ -3,10 +3,10 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
 const productos = [
-    {nombre: "Crisis en tierras infinitas", precio: 2000},
-    {nombre: "The Flash", precio: 1100},
-    {nombre: "Avengers: El guantelete del infinito", precio: 1800},
-    {nombre: "Civil war", precio:1500}
+    {nombre: "Crisis en tierras infinitas", precio: 2000, id:1},
+    {nombre: "The Flash", precio: 1100, id:2},
+    {nombre: "Avengers: El guantelete del infinito", precio: 1800, id:3},
+    {nombre: "Civil war", precio:1500, id:4}
 ]
 
 const ItemListContainer = ({greeting}) => {
@@ -37,9 +37,11 @@ const ItemListContainer = ({greeting}) => {
 
     return (
             <>
+            <div className="itemListContainer">
             <h2>{greeting}</h2>
             <ItemCount stock={5} initial={1} onAdd={onAdd}/>
             <ItemList catalogo={catalogo}/>
+            </div>
             </>
     )
 }

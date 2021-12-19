@@ -52,11 +52,32 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 200px;
+    width: 250px;
     height: 200px;
     padding: 20px;
     margin: 10px;
     border: solid 1px black;
     background-color: cornflowerblue;
     color: white;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.itemListContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.imgDetalle{
+    width: 90px;
+    height: 130px;
+}
+
+.titulo--imgDetalle{
+    display: flex;
+    flex-direction: row;
 }
