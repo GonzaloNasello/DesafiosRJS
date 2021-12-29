@@ -8,7 +8,13 @@ import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
-    const secciones = ["Editoriales", "Ofertas", "Costo de Envio", "Contacto"];
+    const secciones = [
+        { href: "/Editoriales", nombre: "Editoriales", id: 1 },
+        { href: "/Editoriales/Marvel", nombre: "Marvel", id: 2 },
+        { href: "/Editoriales/DC", nombre: "DC", id: 3 },
+        { href: "/Ofertas", nombre: "Ofertas", id: 4 },
+        { href: "/Costo de Envio", nombre: "Costo de Envio", id: 5 }
+    ]
     const greeting = "SuperBienvenido";
 
     return (

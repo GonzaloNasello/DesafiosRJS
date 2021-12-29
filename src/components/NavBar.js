@@ -8,7 +8,7 @@ const NavBar = ({secciones}) => {
             <nav className="nav">
             <NavLink to={"Inicio"} className="link" id="link--inicio">Inicio</NavLink>
             {secciones.map((secciones, indice) =>{
-                return <NavLink key={secciones.id} to={secciones} className="link">{secciones}</NavLink>
+                return <NavLink key={secciones.id} to={secciones.href} className="link">{secciones.nombre}</NavLink>
             }
             )}
             <CartWidget/>

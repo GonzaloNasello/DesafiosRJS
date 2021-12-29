@@ -33,7 +33,7 @@ header{
 }
 
 #icono{
-    margin: 10px 0px 0px 790px;
+    margin: 10px 0px 0px 770px;
 }
 
 .botonsumaresta{
@@ -106,11 +106,6 @@ footer{
 }
 
 .articulo--div{
-    display: flex;
-    flex-direction: column;
-}
-
-.linksInicio{
     display: flex;
     flex-direction: column;
 }
