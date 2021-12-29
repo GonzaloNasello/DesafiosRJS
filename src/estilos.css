@@ -109,3 +109,8 @@ footer{
     display: flex;
     flex-direction: column;
 }
+
+.linksInicio{
+    display: flex;
+    flex-direction: column;
+}
