@@ -33,7 +33,7 @@ header{
 }
 
 #icono{
-    margin: 10px 0px 0px 770px;
+    margin: 10px 0px 0px 760px;
 }
 
 .botonsumaresta{
@@ -66,7 +66,7 @@ header{
     flex-direction: column;
     justify-content: center;
     width: 350px;
-    height: 250px;
+    height: 350px;
     padding: 20px;
     margin: 10px;
     border: solid 1px black;

@@ -9,11 +9,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
     const secciones = [
-        { href: "/Editoriales", nombre: "Editoriales", id: 1 },
-        { href: "/Editoriales/Marvel", nombre: "Marvel", id: 2 },
-        { href: "/Editoriales/DC", nombre: "DC", id: 3 },
-        { href: "/Ofertas", nombre: "Ofertas", id: 4 },
-        { href: "/Costo de Envio", nombre: "Costo de Envio", id: 5 }
+        { href: "/Editoriales/Marvel", nombre: "Marvel", id: 1 },
+        { href: "/Editoriales/DC", nombre: "DC", id: 2 },
+        { href: "/Ofertas", nombre: "Ofertas", id: 3 },
+        { href: "/Costo de Envio", nombre: "Costo de Envio", id: 4 }
     ]
     const greeting = "SuperBienvenido";
 
