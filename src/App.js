@@ -9,9 +9,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
     const secciones = [
-        { href: "/Editoriales/Marvel", nombre: "Marvel", id: 1 },
-        { href: "/Editoriales/DC", nombre: "DC", id: 2 },
-        { href: "/Ofertas", nombre: "Ofertas", id: 3 },
+        { href: "/Editoriales", nombre: "Editoriales", id: 1 },
+        { href: "/Editoriales/Marvel", nombre: "Marvel", id: 2 },
+        { href: "/Editoriales/DC", nombre: "DC", id: 3 },
         { href: "/Costo de Envio", nombre: "Costo de Envio", id: 4 }
     ]
     const greeting = "SuperBienvenido";
@@ -21,6 +21,7 @@ const App = () => {
             <NavBar secciones={secciones}/>
                 <Routes>
                     <Route path="/Inicio" element={<Inicio/>} />
+                    <Route path="/Editoriales" element={<ItemListContainer greeting={greeting}/>} />
                     <Route path="/Editoriales/:categoria" element={<ItemListContainer greeting={greeting}/>} />
                     <Route path="/Ofertas/:id" element={<ItemDetailContainer/>} />
                     <Route path="/Costo%20de%20Envio" element={<CostoDeEnvio/>} />

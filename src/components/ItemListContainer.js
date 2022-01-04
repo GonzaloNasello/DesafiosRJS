@@ -28,6 +28,8 @@ const ItemListContainer = ({greeting}) => {
             console.log("Bien")
             if(categoria){
                 setCatalogo(res.filter((productos) => productos.categoria === categoria))
+            }else {
+                return setCatalogo(res)
             }
         })
         .catch(()=>{
