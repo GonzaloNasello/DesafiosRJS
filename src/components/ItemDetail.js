@@ -5,11 +5,14 @@ import { NavLink } from "react-router-dom";
 const ItemDetail = ({producto}) => {
     
     const [estado, setEstado] = useState(true);
+    const [cantidad, setCantidad] = useState(0);
     
-    const onAdd = (cantidad) => {
+    const onAdd = (contador) => {
         console.log("Su compra se realizo con exito")
+        setCantidad(contador)
         setEstado(false)
     }
+    console.log(cantidad)
 
     if (estado===true) {
         return (
