@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 const ItemCount = ({stock, initial, onAdd}) => {
+
     let [contador, setContador] = useState(initial);
+    
     const sumar = () => {
         if(contador < stock){
             setContador(contador + 1);

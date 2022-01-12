@@ -1,16 +1,19 @@
 import ItemCount from "./ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useContexto } from "./Context";
 
 const ItemDetail = ({producto}) => {
     
     const [estado, setEstado] = useState(true);
     const [cantidad, setCantidad] = useState(0);
+    const { agregarAlCarrito } = useContexto()
     
     const onAdd = (contador) => {
         console.log("Su compra se realizo con exito")
         setCantidad(contador)
         setEstado(false)
+        agregarAlCarrito(contador, producto)
     }
     console.log(cantidad)
 

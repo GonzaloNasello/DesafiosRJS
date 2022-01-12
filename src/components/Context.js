@@ -12,24 +12,45 @@ export const useContexto = () => {
 
 const CustomProvider = ({children}) => {
 
+    const [preciototal, setPrecioTotal] = useState(0)
     const [cantidadtotal,setCantidadTotal] = useState(0)
     const [carrito,setCarrito] = useState([])
 
-    const agregarAlCarrito = (producto,cantidad) => {
-        if(isInCarrito()){
-
-        }else{
-
+    const agregarAlCarrito = (contador, producto) => {
+        
+        const id = producto.id
+        if(isInCarrito(id)){
+            const copia_carrito = [...carrito]
+            let busqueda = copia_carrito.find((prod) => prod.id === producto.id)
+            busqueda.contador = busqueda.contador + contador
+            setCarrito(copia_carrito)
+        }else {
+            const producto_con_contador = {
+                ...producto,
+                contador
+            } 
+            setCarrito([...carrito, producto_con_contador])
         }
+    setCantidadTotal(cantidadtotal + contador)       
     }
 
-    const borrarDelCarrito = (id) => {}
+    const borrarDelCarrito = (id, contador) => {
 
-    const limpiarCarrito = () => {  setCarrito([])  }
+        let filtrarCarrito = carrito.filter(e => (e.id) !== id)
+        setCarrito(filtrarCarrito)
+        setCantidadTotal(cantidadtotal - contador)
+    }
+
+    const limpiarCarrito = () => {  
+        setCarrito([])  
+        setCantidadTotal(0)
+    }
 
     const isInCarrito = (id) => {
-        //return true ? false
+        return carrito.some((prod) => prod.id === id)
     }
+
+    console.log(setCantidadTotal)
 
     const valorDelContexto = {
         cantidadtotal , 
