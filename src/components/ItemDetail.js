@@ -15,7 +15,6 @@ const ItemDetail = ({producto}) => {
         setEstado(false)
         agregarAlCarrito(contador, producto)
     }
-    console.log(cantidad)
 
     if (estado===true) {
         return (
