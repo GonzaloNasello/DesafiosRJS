@@ -1,6 +1,8 @@
 import { useState, useEffect} from "react/cjs/react.development";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import { db } from "./firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 const detalleProducto =  
 [
@@ -18,25 +20,18 @@ const ItemDetailContainer = () => {
 
     useEffect (()=>{
         
-        const promesa = new Promise ((res, rej) =>{
-            setTimeout(()=>{
-                res(detalleProducto)
-                console.log(detalleProducto)
-            },2000)
+        const catalogoCollection = collection(db, "catalogo")
+        const refDoc = doc(catalogoCollection, id)
+        getDoc(refDoc)
+        .then((resultado) => {
+            setProducto(resultado.data())
+            console.log(id)
+            console.log(resultado.data())
         })
-
-        promesa
-        .then((res)=>{
-            console.log("Bien")
-            if(id){
-                let data = res.find((detalleProducto) => detalleProducto.id === Number(id))
-                setProducto(data)
-            }
+        .catch((error) =>{
+            console.log(error)
         })
-        .catch(()=>{
-            console.log("Mal")
-        })
-    },[])
+    },[id])
     
     return (
         <div>

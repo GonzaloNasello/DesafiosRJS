@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import {db} from "./firebase"
+import { getDocs, query, collection, where} from "firebase/firestore";
+
 
 const productos = [
     {nombre: "Crisis en tierras infinitas", precio: 2000, img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/184/069/products/crisis_cov_arg1-a4a9db904b75118e4315980054342033-1024-1024.jpg", id:1, categoria:"DC"},
@@ -14,27 +17,30 @@ const ItemListContainer = ({greeting}) => {
     const { categoria } = useParams()
     let [catalogo, setCatalogo] = useState([])
 
-    useEffect (()=>{
-        const promesa = new Promise ((res, rej) =>{
-            setTimeout(()=>{
-                res(productos)
-                console.log(productos)
-            },2000)
-        })
 
-        promesa
-        .then((res)=>{
-            console.log("Bien")
-            if(categoria){
-                setCatalogo(res.filter((productos) => productos.categoria === categoria))
-            }else {
-                return setCatalogo(res)
-            }
-        })
-        .catch(()=>{
-            console.log("Mal")
-        })
-    },[categoria])
+    useEffect (()=>{
+
+        const catalogoCollection = collection(db, "catalogo")
+
+        if (categoria){
+            const consulta = query(catalogoCollection, where("categoria", "==", categoria))
+            getDocs(consulta)
+            .then(({docs}) => {
+                setCatalogo(docs.map((doc) => ({ id: doc.id, ...doc.data()})))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        }else {
+            getDocs(catalogoCollection)
+            .then(({docs}) => {
+                setCatalogo(docs.map((doc) => ({ id: doc.id, ...doc.data()})))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        }
+        },[categoria])
     
     return (
             <>

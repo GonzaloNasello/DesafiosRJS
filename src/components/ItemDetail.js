@@ -38,7 +38,7 @@ const ItemDetail = ({producto}) => {
                 <img className="imgDetalle" src={producto.img}></img>
                 </div>
                 <p>${producto.precio}</p>
-                <NavLink to="/cart"><button className="botonfinalizar">Finalizar compra</button></NavLink>
+                <NavLink to="/cart"><button className="botonfinalizar">Ir a carrito</button></NavLink>
                 </article>
             </div>  
         )

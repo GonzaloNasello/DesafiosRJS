@@ -1,4 +1,9 @@
 import { createContext, useContext, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { db } from "./firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
+
 
 const contexto = createContext()
 
@@ -11,13 +16,13 @@ export const useContexto = () => {
 
 
 const CustomProvider = ({children}) => {
-
+    
+    const { id } = useParams()
     const [preciototal, setPrecioTotal] = useState(0)
     const [cantidadtotal,setCantidadTotal] = useState(0)
     const [carrito,setCarrito] = useState([])
-
+    
     const agregarAlCarrito = (contador, producto) => {
-        
         const id = producto.id
         if(isInCarrito(id)){
             const copia_carrito = [...carrito]
@@ -36,6 +41,7 @@ const CustomProvider = ({children}) => {
     setPrecioTotal(preciototal + precio_con_cantidad)   
     }
     
+    
     const borrarDelCarrito = (id, contador) => {
 
         let filtrarCarrito = carrito.filter(e => (e.id) !== id)
@@ -51,11 +57,12 @@ const CustomProvider = ({children}) => {
         setCantidadTotal(0)
         setPrecioTotal(0)
     }
-
+    
+    
     const isInCarrito = (id) => {
         return carrito.some((prod) => prod.id === id)
     }
-
+    
     const valorDelContexto = {
         cantidadtotal , 
         carrito , 
