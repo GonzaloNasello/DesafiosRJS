@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { db } from "./firebase";
@@ -17,16 +17,15 @@ export const useContexto = () => {
 
 const CustomProvider = ({children}) => {
     
-    const { id } = useParams()
     const [preciototal, setPrecioTotal] = useState(0)
     const [cantidadtotal,setCantidadTotal] = useState(0)
     const [carrito,setCarrito] = useState([])
     
     const agregarAlCarrito = (contador, producto) => {
-        const id = producto.id
-        if(isInCarrito(id)){
+        const key = producto.key
+        if(isInCarrito(key)){
             const copia_carrito = [...carrito]
-            let busqueda = copia_carrito.find((prod) => prod.id === producto.id)
+            let busqueda = copia_carrito.find((prod) => prod.key === producto.key)
             busqueda.contador = busqueda.contador + contador
             setCarrito(copia_carrito)
         }else {
@@ -42,14 +41,15 @@ const CustomProvider = ({children}) => {
     }
     
     
-    const borrarDelCarrito = (id, contador) => {
-
-        let filtrarCarrito = carrito.filter(e => (e.id) !== id)
-        let buscarEnCarrito = carrito.find(e => (e.id) === id)
+    const borrarDelCarrito = (contador, key) => {
+        let filtrarCarrito = carrito.filter(e => (e.key) !== key)
+        let buscarEnCarrito = carrito.find(e => (e.key) === key)
+        console.log(filtrarCarrito)
+        console.log(buscarEnCarrito)
 
         setCarrito(filtrarCarrito)
         setCantidadTotal(cantidadtotal - contador)
-        setPrecioTotal(preciototal - (buscarEnCarrito.precio * contador))
+        /*setPrecioTotal(preciototal - (buscarEnCarrito.precio * contador))*/
     }
 
     const limpiarCarrito = () => {  
@@ -58,9 +58,8 @@ const CustomProvider = ({children}) => {
         setPrecioTotal(0)
     }
     
-    
-    const isInCarrito = (id) => {
-        return carrito.some((prod) => prod.id === id)
+    const isInCarrito = (key) => {
+        return carrito.some((prod) => prod.key === key)
     }
     
     const valorDelContexto = {
