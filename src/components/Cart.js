@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContexto } from "./Context";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { useEffect } from "react";
+import { addDoc, collection, serverTimestamp, getDoc, doc} from "firebase/firestore";
 import { db } from "./firebase";
 
 const Cart = () => {
@@ -25,6 +26,20 @@ const Cart = () => {
             limpiarCarrito()
         })
     }
+
+    const { id } = useParams()
+    
+    useEffect (()=>{
+        const ventasCollection = collection(db, "ventas")
+        const refDoc = doc(ventasCollection, id)
+        getDoc(refDoc)
+        .then((resultado) => {
+            <p>Su codigo de compra es ${resultado.id}</p>
+        })
+        .catch((error) =>{
+            console.log(error)
+        })
+    },[id])
 
     return (
         <div> 
