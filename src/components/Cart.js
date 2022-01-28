@@ -1,12 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { useContexto } from "./Context";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addDoc, collection, serverTimestamp, getDoc, doc} from "firebase/firestore";
 import { db } from "./firebase";
 
 const Cart = () => {
 
     const { carrito, borrarDelCarrito, limpiarCarrito, preciototal } = useContexto()
+    const [ idOrden , setIdOrden ] = useState()
     
     const finalizarCompra = () => {
         
@@ -22,24 +23,10 @@ const Cart = () => {
             total : 100
         })
         .then((resultado)=>{
-            console.log(resultado)
+            setIdOrden(resultado.id)
             limpiarCarrito()
         })
     }
-
-    const { id } = useParams()
-    
-    useEffect (()=>{
-        const ventasCollection = collection(db, "ventas")
-        const refDoc = doc(ventasCollection, id)
-        getDoc(refDoc)
-        .then((resultado) => {
-            <p>Su codigo de compra es ${resultado.id}</p>
-        })
-        .catch((error) =>{
-            console.log(error)
-        })
-    },[id])
 
     return (
         <div> 
@@ -57,6 +44,7 @@ const Cart = () => {
                 }
             <p>Precio total: ${preciototal}</p>
             <button onClick={finalizarCompra}>Finalizar compra</button>
+            <p>La compra se realizo con exito!! El codigo de orden es {idOrden}</p>
         </div>
     )
 }
