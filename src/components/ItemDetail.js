@@ -1,5 +1,5 @@
 import ItemCount from "./ItemCount";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useContexto } from "./Context";
 
@@ -39,6 +39,7 @@ const ItemDetail = ({producto}) => {
                 </div>
                 <p>${producto.precio}</p>
                 <NavLink to="/cart"><button className="botonfinalizar">Ir a carrito</button></NavLink>
+                <NavLink to="/"><button className="botonfinalizar">Seguir comprando</button></NavLink>
                 </article>
             </div>  
         )

@@ -3,7 +3,6 @@ import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import Inicio from "./components/Inicio";
 import Contacto from "./components/Contacto";
-import CostoDeEnvio from "./components/CostoDeEnvio";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart";

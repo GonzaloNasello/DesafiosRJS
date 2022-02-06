@@ -33,7 +33,13 @@ header{
 }
 
 #icono{
-    margin: 10px 0px 0px 900px;
+    margin: 10px 0px 0px 890px;
+    text-decoration: none;
+    color: black;
+}
+
+#icono:hover {
+    color: silver;
 }
 
 .botonsumaresta{
@@ -61,10 +67,10 @@ header{
 .articulo{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    text-align: center;
+    justify-content: space-around;
     align-items: center;
     width: 350px;
-    height: 250px;
     padding: 20px;
     margin: 10px;
     border: solid 1px black;
@@ -116,7 +122,15 @@ footer{
     padding-left: 10px;
 }
 
-.articulo--div{
+.articulo--container{
+    display: flex;
+}
+
+.articulo{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 3px;
 }

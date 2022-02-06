@@ -1,9 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
-import { db } from "./firebase";
-import { collection, doc, getDoc } from "firebase/firestore";
-
+import { createContext, useContext, useState } from "react";
 
 const contexto = createContext()
 
@@ -41,15 +36,13 @@ const CustomProvider = ({children}) => {
     }
     
     
-    const borrarDelCarrito = (contador, key) => {
-        let filtrarCarrito = carrito.filter(e => (e.key) !== key)
-        let buscarEnCarrito = carrito.find(e => (e.key) === key)
-        console.log(filtrarCarrito)
-        console.log(buscarEnCarrito)
+    const borrarDelCarrito = (key, contador) => {
+        let filtrarCarrito = carrito.filter((prod) => prod.key !== key)
+        let buscarEnCarrito = carrito.find((prod) => prod.key === key)
 
         setCarrito(filtrarCarrito)
         setCantidadTotal(cantidadtotal - contador)
-        /*setPrecioTotal(preciototal - (buscarEnCarrito.precio * contador))*/
+        setPrecioTotal(preciototal - (buscarEnCarrito.precio * contador))
     }
 
     const limpiarCarrito = () => {  

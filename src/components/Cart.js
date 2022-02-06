@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useContexto } from "./Context";
-import { useEffect, useState } from "react";
-import { addDoc, collection, serverTimestamp, getDoc, doc} from "firebase/firestore";
+import { useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase";
 
 const Cart = () => {
@@ -20,7 +20,7 @@ const Cart = () => {
             },
             items : carrito ,
             date : serverTimestamp(),
-            total : 100
+            total : preciototal
         })
         .then((resultado)=>{
             setIdOrden(resultado.id)
@@ -34,7 +34,7 @@ const Cart = () => {
             {carrito.length > 0 ? (
                 <ul>
                     {carrito.map((producto, id) => {
-                        return <li key={id}>{producto.nombre} - ${producto.precio} X {producto.contador} <button onClick={()=>borrarDelCarrito(producto.id,producto.contador)}>Borrar producto</button></li>
+                        return <li key={id}>{producto.nombre} - ${producto.precio} X {producto.contador} <button onClick={()=>borrarDelCarrito(producto.key, producto.contador)}>Borrar producto</button></li>
                     })}
                 </ul>
             ) : <>
