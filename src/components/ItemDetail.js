@@ -10,7 +10,6 @@ const ItemDetail = ({producto}) => {
     const { agregarAlCarrito } = useContexto()
     
     const onAdd = (contador) => {
-        console.log("Su compra se realizo con exito")
         setCantidad(contador)
         setEstado(false)
         agregarAlCarrito(contador, producto)

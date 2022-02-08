@@ -1,7 +1,6 @@
 import ItemDetailContainer from "./components/ItemDetailConteiner";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
-import Inicio from "./components/Inicio";
 import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

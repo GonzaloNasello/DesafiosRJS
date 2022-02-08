@@ -36,12 +36,10 @@ const ItemListContainer = ({greeting}) => {
         },[categoria])
     
     return (
-            <>
-            <div className="itemListContainer">
-            <h2>¡{greeting}!</h2>
-            <ItemList catalogo={catalogo}/>
-            </div>
-            </>
+        <div className="itemListContainer">
+        <ItemList catalogo={catalogo}/>
+        </div>
+            
     )
 }
 

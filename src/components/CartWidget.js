@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useContexto } from "./Context";
 
